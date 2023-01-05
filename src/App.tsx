@@ -77,17 +77,21 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <NavigationContainer>
+    <NavigationContainer>
+      <SafeAreaView style={{...backgroundStyle, ...styles.appContainer}}>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
