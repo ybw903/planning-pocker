@@ -30,6 +30,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
+import RoomScreen from './screens/Room';
+import SelectScreen from './screens/Select';
 
 const Section: React.FC<
   PropsWithChildren<{
@@ -65,7 +67,8 @@ export type ScreenStackParamList = {
   Login: undefined;
   Home: undefined;
   Room: {roomId: string};
-  Play: {roomId: string};
+  Select: {roomId: string};
+  Result: {roomId: string};
 };
 
 const Stack = createStackNavigator<ScreenStackParamList>();
@@ -85,6 +88,16 @@ const App = () => {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Room"
+            component={RoomScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Select"
+            component={SelectScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
