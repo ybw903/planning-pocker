@@ -28,6 +28,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
 
 const Section: React.FC<
@@ -81,6 +82,7 @@ const App = () => {
       <SafeAreaView style={{...backgroundStyle, ...styles.appContainer}}>
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

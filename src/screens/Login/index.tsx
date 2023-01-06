@@ -1,11 +1,36 @@
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+
+import {ScreenStackParamList} from '../../App';
 import {Button, TextField} from '../../components';
 import common from '../../styles/common';
 
+const testUser = {
+  account: 'user',
+  password: '1234',
+};
+
 const LoginScreen: React.FC = () => {
+  const navigation = useNavigation<NavigationProp<ScreenStackParamList>>();
+
   const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
+
+  const validUser = () => {
+    return testUser.account === account && testUser.password === password;
+  };
+
+  const navigateHomeScreen = () => {
+    navigation.navigate('Home');
+  };
+
+  const onSumbit = () => {
+    if (!validUser()) {
+      return;
+    }
+    navigateHomeScreen();
+  };
 
   return (
     <View style={styles.container}>
@@ -22,7 +47,7 @@ const LoginScreen: React.FC = () => {
           onChangeText={setPassword}
           style={styles.mgBt}
         />
-        <Button style={styles.mgT}>
+        <Button style={styles.mgT} onPress={onSumbit}>
           <Text style={{color: '#fff'}}>로그인</Text>
         </Button>
       </View>
