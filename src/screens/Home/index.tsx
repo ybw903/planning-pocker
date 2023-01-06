@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button} from '../../components';
 import {Room} from '../../types';
 
 const dummyRooms: Room[] = [
@@ -66,16 +67,23 @@ const dummyRooms: Room[] = [
 const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <FlatList
-        data={dummyRooms}
-        renderItem={({item}) => (
-          <View key={item.roomId}>
-            <TouchableOpacity>
-              <Text>{item.roomTitle} </Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      <View>
+        <Button>
+          <Text style={{color: '#fff'}}>{'방 생성'}</Text>
+        </Button>
+      </View>
+      <View>
+        <FlatList
+          data={dummyRooms}
+          renderItem={({item}) => (
+            <View key={item.roomId}>
+              <TouchableOpacity>
+                <Text>{item.roomTitle} </Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 };
@@ -83,7 +91,6 @@ const HomeScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
   },
