@@ -22,10 +22,6 @@ const ResultScreen: React.FC<ResultScreenProps> = ({route}) => {
     participatns.length ===
       participatns.filter(participant => participant.vote).length;
 
-  console.log('check room: ', room);
-  console.log('check participants :', participatns);
-  console.log('check voted :', isAllUserVoted);
-
   useEffect(() => {
     const enteredRoom = dummyRooms.find(room => room.roomId === roomId);
     if (!enteredRoom) return;
