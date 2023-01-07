@@ -4,6 +4,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {ScreenStackParamList} from '../../App';
+import {Button} from '../../components';
 import {dummyRooms, dummyCards} from '../../data';
 import {Room} from '../../types';
 
@@ -58,19 +59,24 @@ const ResultScreen: React.FC<ResultScreenProps> = ({route}) => {
     <View style={styles.container}>
       <View>
         {isAllUserVoted ? (
-          <FlatList
-            data={participatns}
-            renderItem={({item}) => (
-              <View>
+          <View>
+            <FlatList
+              data={participatns}
+              renderItem={({item}) => (
                 <View>
-                  <Text>{item.userName}</Text>
+                  <View>
+                    <Text>{item.userName}</Text>
+                  </View>
+                  <View>
+                    <Text>{item.vote}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text>{item.vote}</Text>
-                </View>
-              </View>
-            )}
-          />
+              )}
+            />
+            <Button onPress={() => navigation.navigate('Home')}>
+              <Text style={{color: '#fff'}}>{'나가기'}</Text>
+            </Button>
+          </View>
         ) : (
           <View>
             <Text>
