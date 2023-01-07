@@ -30,6 +30,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './screens/Home';
 import LoginScreen from './screens/Login';
+import ResultScreen from './screens/Result';
 import RoomScreen from './screens/Room';
 import SelectScreen from './screens/Select';
 
@@ -98,6 +99,11 @@ const App = () => {
           <Stack.Screen
             name="Select"
             component={SelectScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Result"
+            component={ResultScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

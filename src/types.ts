@@ -4,7 +4,11 @@ export interface Room {
   password?: string;
   maxParticipants: number;
   creator: User;
-  participants: User[];
+  participants: Participant[];
+}
+
+export interface Participant extends User {
+  vote?: string;
 }
 
 export interface User {
